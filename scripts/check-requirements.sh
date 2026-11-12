@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 if [[ "$(uname -s)" != Darwin ]]; then
-  echo "MacBook Island yalnızca macOS'ta çalışır / requires macOS." >&2
+  echo "Notch Media Island yalnızca macOS'ta çalışır / requires macOS." >&2
   exit 1
 fi
 MAJOR_OS="$(sw_vers -productVersion | cut -d. -f1)"

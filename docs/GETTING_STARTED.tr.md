@@ -1,4 +1,4 @@
-# MacBook Island — Kurulum
+# Notch Media Island — Kurulum
 
 Kod yazmanız gerekmiyor. macOS 14 Sonoma veya daha yenisi gerekiyor.
 
@@ -6,7 +6,7 @@ Kod yazmanız gerekmiyor. macOS 14 Sonoma veya daha yenisi gerekiyor.
 
 1. Reponun **Releases** bölümüne girin. Henüz sürüm yoksa aşağıdaki kaynak koddan kurulum yolunu kullanın.
 2. Apple menüsü → **Bu Mac Hakkında** bölümünde Apple M-serisi çip görünüyorsa `arm64`, Intel işlemci görünüyorsa `x86_64` ZIP dosyasını indirin.
-3. ZIP’i açın. **MacBook Island.app** dosyasını **Uygulamalar** klasörüne sürükleyin ve açın.
+3. ZIP’i açın. **Notch Media Island.app** dosyasını **Uygulamalar** klasörüne sürükleyin ve açın.
 4. Mouse’u çentiğe getirin. Dock’ta simge görünmemesi normaldir.
 
 Hazır uygulama için Xcode gerekmez. Mevcut paketler notarize edilmemiştir; aşağıdaki güvenlik açıklamasını okuyun.
@@ -18,7 +18,7 @@ Hazır uygulama için Xcode gerekmez. Mevcut paketler notarize edilmemiştir; a�
 3. Apple’ın ücretsiz Command Line Tools araçları eksikse `y` yazıp Enter’a basarak Apple kurulum penceresini açabilirsiniz. Kurulumu tamamlayın, sonra **Start.command** dosyasını yeniden açın. Apple araçlarının kurulumu internet, boş disk alanı ve bazen yönetici parolası gerektirir.
 4. İlk derlemeyi bekleyin. Uygulama kullanıcı klasörünüzdeki **Applications** klasörüne kurulup açılır. Hazır mesajından sonra Enter ile Terminal penceresini kapatabilirsiniz.
 
-Sonraki açılışlarda Finder → **Git → Ana Klasör → Applications → MacBook Island.app** yolunu kullanın. Bu, genel Uygulamalar klasöründen ayrı, size ait klasördür. Uygulamanın kendisini kurmak için yönetici parolası gerekmez. Her açılışta Start.command çalıştırmayın.
+Sonraki açılışlarda Finder → **Git → Ana Klasör → Applications → Notch Media Island.app** yolunu kullanın. Bu, genel Uygulamalar klasöründen ayrı, size ait klasördür. Uygulamanın kendisini kurmak için yönetici parolası gerekmez. Her açılışta Start.command çalıştırmayın.
 
 ## Kullanım
 
@@ -49,4 +49,4 @@ Betikler Gatekeeper’ı kapatmaz, karantina işaretlerini silmez veya güvenlik
 
 ## Güncelleme ve kaldırma
 
-Yeni kodu indirin/çekin, uygulamadan çıkın ve **Start.command** dosyasını açın. Mevcut kurulum güncellenir. Kaldırmak için uygulamadan çıkıp kurulu **MacBook Island.app** dosyasını Çöp’e taşıyın. Proje klasörünü ayrıca silebilirsiniz. Müzik dosyalarınıza dokunulmaz.
+Yeni kodu indirin/çekin, uygulamadan çıkın ve **Start.command** dosyasını açın. Mevcut kurulum güncellenir. Kaldırmak için uygulamadan çıkıp kurulu **Notch Media Island.app** dosyasını Çöp’e taşıyın. Proje klasörünü ayrıca silebilirsiniz. Müzik dosyalarınıza dokunulmaz.

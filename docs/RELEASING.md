@@ -11,7 +11,7 @@ Preparation does not create a GitHub repo, remote, tag or release.
 
 ## Downloadable packages
 
-Run `bash scripts/package.sh` to produce `dist/MacBook-Island-VERSION-ARCH.zip` and a SHA-256 file for the current architecture. Packages include the app, both licenses, third-party notices and install instructions. Signatures are checked during the build.
+Run `bash scripts/package.sh` to produce `dist/Notch-Media-Island-VERSION-ARCH.zip` and a SHA-256 file for the current architecture. Packages include the app, both licenses, third-party notices and install instructions. Signatures are checked during the build.
 
 For both architectures, download the two artifacts from a successful Actions run on the exact release commit. Extract the outer Actions ZIP and use the inner app ZIP/checksum. Artifacts expire after 14 days; publish durable downloads as Release assets.
 

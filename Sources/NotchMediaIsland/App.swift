@@ -2,7 +2,7 @@ import AppKit
 import SwiftUI
 
 @main
-struct MacBookIslandApp: App {
+struct NotchMediaIslandApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         Settings { EmptyView() }
@@ -82,9 +82,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     private func setupMenu() {
         let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-        item.button?.image = NSImage(systemSymbolName: "waveform", accessibilityDescription: "MacBook Island")
+        item.button?.image = NSImage(systemSymbolName: "waveform", accessibilityDescription: "Notch Media Island")
         let menu = NSMenu()
-        let heading = NSMenuItem(title: "MacBook Island", action: nil, keyEquivalent: "")
+        let heading = NSMenuItem(title: "Notch Media Island", action: nil, keyEquivalent: "")
         heading.isEnabled = false
         menu.addItem(heading)
         menu.addItem(.separator())

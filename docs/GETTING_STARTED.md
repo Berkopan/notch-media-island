@@ -6,7 +6,7 @@ No coding required. macOS 14 Sonoma or newer is required.
 
 1. Open this repository’s **Releases** section. If empty, use the source instructions below.
 2. Check Apple menu → **About This Mac**: download `arm64` for Apple M-series, `x86_64` for Intel.
-3. Unzip and drag **MacBook Island.app** into Applications. Open it and hover over the notch.
+3. Unzip and drag **Notch Media Island.app** into Applications. Open it and hover over the notch.
 
 No Xcode is needed for a prebuilt app. Current packages are ad-hoc signed and not notarized; see the security section.
 
@@ -17,7 +17,7 @@ No Xcode is needed for a prebuilt app. Current packages are ad-hoc signed and no
 3. If Apple’s free Command Line Tools are missing, type `y` and Return to open Apple’s installer. Finish installation, then reopen **Start.command**. Apple’s installer needs internet access, disk space and possibly administrator authorization.
 4. Wait for the first build. The app installs into **Applications inside your home folder** and opens. Press Return to close the launcher after completion.
 
-Next time use Finder → **Go → Home → Applications → MacBook Island.app**. This personal Applications folder differs from the system folder; installing the app itself needs no administrator privileges. You do not need to rebuild each time.
+Next time use Finder → **Go → Home → Applications → Notch Media Island.app**. This personal Applications folder differs from the system folder; installing the app itself needs no administrator privileges. You do not need to rebuild each time.
 
 ## macOS security messages
 

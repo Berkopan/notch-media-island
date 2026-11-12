@@ -1,7 +1,7 @@
-MacBook Island
+Notch Media Island
 
-TR: ZIP’i açın, MacBook Island.app dosyasını Uygulamalar’a sürükleyin ve açın.
-EN: Unzip, drag MacBook Island.app to Applications, then open.
+TR: ZIP’i açın, Notch Media Island.app dosyasını Uygulamalar’a sürükleyin ve açın.
+EN: Unzip, drag Notch Media Island.app to Applications, then open.
 
 macOS 14+ required. arm64 = Apple Silicon (M-series), x86_64 = Intel.
 No Xcode or developer tools needed for this prebuilt app.

@@ -1,4 +1,4 @@
-# MacBook Island
+# Notch Media Island
 
 **English** · **[Türkçe](README.tr.md)**
 
@@ -17,13 +17,13 @@ A compact black media player that expands from your MacBook’s notch on hover. 
 3. If Apple’s developer tools are missing, the launcher offers to open Apple’s installer. Finish that installation, then reopen **Start.command**.
 4. Wait for the first build. The app installs into **Applications inside your home folder** and opens. Hover over the notch.
 
-For later launches, open **MacBook Island.app** from your home folder’s Applications folder. There is no need to rebuild each time. The launcher uses Terminal to show progress, but requires no code or commands. If macOS blocks it, see the setup guide.
+For later launches, open **Notch Media Island.app** from your home folder’s Applications folder. There is no need to rebuild each time. The launcher uses Terminal to show progress, but requires no code or commands. If macOS blocks it, see the setup guide.
 
 Requires **macOS 14 Sonoma or newer**. Building from source requires Apple Command Line Tools with **Swift 5.9+**, or Xcode 15+. Apple Silicon has been tested locally; CI is configured for Apple Silicon and Intel, but Intel playback still needs on-device verification.
 
 ### Ready-made app
 
-Once a release is published, use this repository’s **Releases** section: download `arm64` for Apple M-series or `x86_64` for Intel. Unzip, drag **MacBook Island.app** into Applications, then open. No developer tools needed. If Releases is empty, use the source setup above.
+Once a release is published, use this repository’s **Releases** section: download `arm64` for Apple M-series or `x86_64` for Intel. Unzip, drag **Notch Media Island.app** into Applications, then open. No developer tools needed. If Releases is empty, use the source setup above.
 
 Current packages are **ad-hoc signed, not Developer ID signed or notarized**. macOS may block a downloaded app. Review [Apple’s safety guidance](https://support.apple.com/en-us/102445) and the setup guide before deciding whether to open it.
 

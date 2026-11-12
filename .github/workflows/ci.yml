@@ -27,7 +27,7 @@ jobs:
         run: bash scripts/package.sh
       - uses: actions/upload-artifact@v4
         with:
-          name: MacBook-Island-${{ matrix.runner }}
+          name: Notch-Media-Island-${{ matrix.runner }}
           path: dist/*
           if-no-files-found: error
           retention-days: 14

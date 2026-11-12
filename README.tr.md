@@ -1,4 +1,4 @@
-# MacBook Island
+# Notch Media Island
 
 **[English](README.md)** · **Türkçe**
 
@@ -17,13 +17,13 @@ Mouse'u üzerine getirdiğinizde MacBook çentiğinden genişleyen kompakt, siya
 3. Apple geliştirme araçları eksikse başlatıcı Apple'ın kurulum penceresini açmayı önerir. Kurulumu bitirip **Start.command** dosyasını yeniden açın.
 4. İlk derlemeyi bekleyin. Uygulama **ana klasörünüzdeki Applications** klasörüne kurulup açılır. Mouse'u çentiğin üzerine getirin.
 
-Sonraki açılışlarda ana klasörünüzdeki Applications içinden **MacBook Island.app** dosyasını açın. Her seferinde derlemeniz gerekmez. Başlatıcı ilerlemeyi göstermek için Terminal kullanır; kod veya komut yazmanız gerekmez. macOS açılışı engellerse kurulum rehberine bakın.
+Sonraki açılışlarda ana klasörünüzdeki Applications içinden **Notch Media Island.app** dosyasını açın. Her seferinde derlemeniz gerekmez. Başlatıcı ilerlemeyi göstermek için Terminal kullanır; kod veya komut yazmanız gerekmez. macOS açılışı engellerse kurulum rehberine bakın.
 
 **macOS 14 Sonoma veya daha yenisi** gerekir. Kaynaktan derlemek için **Swift 5.9+** içeren Apple Command Line Tools veya Xcode 15+ gerekir. Apple Silicon üzerinde yerel olarak test edilmiştir; CI hem Apple Silicon hem Intel için yapılandırılmıştır, ancak Intel'de gerçek cihaz üzerinde medya testi hâlâ gereklidir.
 
 ### Hazır uygulama
 
-Bir sürüm yayımlandığında reponun **Releases** bölümünden Apple M-serisi için `arm64`, Intel için `x86_64` dosyasını indirin. ZIP'i açın, **MacBook Island.app** dosyasını Uygulamalar'a sürükleyip açın. Geliştirici aracı gerekmez. Releases boşsa yukarıdaki kaynaktan kurulum yolunu kullanın.
+Bir sürüm yayımlandığında reponun **Releases** bölümünden Apple M-serisi için `arm64`, Intel için `x86_64` dosyasını indirin. ZIP'i açın, **Notch Media Island.app** dosyasını Uygulamalar'a sürükleyip açın. Geliştirici aracı gerekmez. Releases boşsa yukarıdaki kaynaktan kurulum yolunu kullanın.
 
 Mevcut paketler **yerel ad-hoc imzalıdır; Developer ID ile imzalanmış veya notarize edilmiş değildir**. macOS indirilen uygulamayı engelleyebilir. Açmaya karar vermeden önce [Apple'ın güvenlik açıklamasını](https://support.apple.com/en-us/102445) ve kurulum rehberini okuyun.
 

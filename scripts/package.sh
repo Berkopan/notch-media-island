@@ -4,12 +4,12 @@ cd "$(dirname "$0")/.."
 bash scripts/build.sh
 VERSION="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' Resources/Info.plist)"
 ARCH="$(uname -m)"
-NAME="MacBook-Island-${VERSION}-${ARCH}"
+NAME="Notch-Media-Island-${VERSION}-${ARCH}"
 mkdir -p dist
 STAGING="$(mktemp -d "$PWD/build/package.XXXXXX")"
 trap 'rm -rf "$STAGING"' EXIT
 mkdir -p "$STAGING/$NAME"
-ditto "build/MacBook Island.app" "$STAGING/$NAME/MacBook Island.app"
+ditto "build/Notch Media Island.app" "$STAGING/$NAME/Notch Media Island.app"
 cp LICENSE THIRD_PARTY_NOTICES.md docs/INSTALL_RELEASE.txt "$STAGING/$NAME/"
 cp Vendor/MediaRemoteAdapter/LICENSE "$STAGING/$NAME/MediaRemoteAdapter-LICENSE.txt"
 ditto -c -k --sequesterRsrc --keepParent "$STAGING/$NAME" "dist/$NAME.zip"

@@ -1,6 +1,6 @@
 #!/bin/bash
 cd "$(dirname "$0")" || exit 1
-echo "MacBook Island — Kur ve aç / Install and open"
+echo "Notch Media Island — Kur ve aç / Install and open"
 echo "İlk hazırlık birkaç dakika sürebilir / First build may take a few minutes."
 echo ""
 bash scripts/check-requirements.sh
@@ -20,7 +20,7 @@ fi
 if bash scripts/install.sh; then
   echo "Hazır! Çentiğin üzerine gelin / Ready! Hover over the notch."
   echo "Bundan sonra Finder > Ev > Applications içinden açabilirsiniz."
-  echo "Next time, open MacBook Island from your home folder's Applications folder."
+  echo "Next time, open Notch Media Island from your home folder's Applications folder."
 else
   echo "Kurulum tamamlanamadı. Yukarıdaki mesajı ve docs/GETTING_STARTED.tr.md dosyasını kontrol edin."
   echo "Setup failed. Check the message above and docs/GETTING_STARTED.md."

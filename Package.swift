@@ -2,12 +2,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "MacBookIsland",
+    name: "NotchMediaIsland",
     platforms: [.macOS(.v14)],
-    products: [.executable(name: "MacBookIsland", targets: ["MacBookIsland"])],
+    products: [.executable(name: "NotchMediaIsland", targets: ["NotchMediaIsland"])],
     targets: [
         .target(name: "IslandCore"),
-        .executableTarget(name: "MacBookIsland", dependencies: ["IslandCore"]),
+        .executableTarget(name: "NotchMediaIsland", dependencies: ["IslandCore"]),
         .testTarget(name: "IslandCoreTests", dependencies: ["IslandCore"])
     ]
 )
