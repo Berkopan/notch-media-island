@@ -1,0 +1,21 @@
+MacBook Island
+
+TR: ZIP’i açın, MacBook Island.app dosyasını Uygulamalar’a sürükleyin ve açın.
+EN: Unzip, drag MacBook Island.app to Applications, then open.
+
+macOS 14+ required. arm64 = Apple Silicon (M-series), x86_64 = Intel.
+No Xcode or developer tools needed for this prebuilt app.
+
+This app is ad-hoc signed, NOT Developer ID signed or notarized by Apple.
+macOS may block it. Verify the source and consult Apple’s official guidance:
+https://support.apple.com/en-us/102445
+The project does not disable system security or remove quarantine attributes.
+
+Hover over the notch. No Dock icon is expected.
+Menu bar waveform: Çıkış = Quit, Medya bağlantısını yenile = Reconnect.
+Only the active system Now Playing session is shown. Some players do not
+publish media information or support seeking. Private APIs can change.
+
+Original app: MIT; MediaRemote Adapter: BSD-3-Clause. Both licenses and notices
+are in this ZIP and inside the app’s Resources folder.
+Independent project, not affiliated with Apple or endorsed by adapter authors.

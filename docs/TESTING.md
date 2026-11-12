@@ -6,6 +6,8 @@ Run `swift test --disable-sandbox` for timeline extrapolation, paused state, fut
 
 ## On-device checklist
 
+For a clean source-install check, clone into a new directory containing spaces and run `bash scripts/check-requirements.sh` followed by `bash scripts/package.sh`. Verify the ZIP's extracted app with `codesign --verify --deep --strict`. Quit the running app before testing `Start.command` installation and reinstallation. Developers can set `ISLAND_APPLICATIONS_DIR` to an isolated test directory and `ISLAND_SKIP_OPEN=1` when testing `scripts/install.sh`; never overwrite the shell's HOME variable. Check missing tools and old macOS messages separately on suitable test machines.
+
 1. Launch the app; check the menu bar waveform and the island centered over the built-in notch.
 2. Hover over the notch and verify that all content is below the camera housing. Leave the island and verify delayed collapse.
 3. With no active Now Playing session, verify the empty state.

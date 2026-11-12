@@ -1,5 +1,7 @@
 # Third-party notices
 
+Original MacBook Island code is MIT licensed (see the root LICENSE). The dependency below retains its own BSD-3-Clause license; it is not relicensed under MIT.
+
 ## MediaRemote Adapter
 
 - Source: https://github.com/ungive/mediaremote-adapter

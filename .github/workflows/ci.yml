@@ -1,0 +1,33 @@
+name: Build and test
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  macos:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [macos-15, macos-15-intel]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check prerequisites and shell syntax
+        run: |
+          bash scripts/check-requirements.sh
+          bash -n Start.command
+          for script in scripts/*.sh; do bash -n "$script"; done
+      - name: Test
+        run: swift test --disable-sandbox
+      - name: Package local build
+        run: bash scripts/package.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MacBook-Island-${{ matrix.runner }}
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 14

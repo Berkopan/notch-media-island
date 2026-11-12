@@ -1,55 +1,53 @@
 # MacBook Island
 
-A quiet, black Now Playing panel that expands from your MacBook's notch when you hover over it. Built with SwiftUI and AppKit; designed for a 16-inch MacBook Pro and sized using the display's actual notch geometry.
+A compact black media player that expands from your MacBook’s notch on hover. Native SwiftUI/AppKit, with system Now Playing integration.
 
-## First version
+**[Türkçe kurulum](docs/GETTING_STARTED.tr.md)** · **[English setup](docs/GETTING_STARTED.md)**
 
-- Hover to expand; move away to collapse after a short delay.
-- Artwork, title, artist, play/pause, previous and next.
-- Seekable progress bar with elapsed and remaining time.
-- System-wide active Now Playing session, including apps and browsers that publish media metadata to macOS.
-- Empty state, connection errors, reconnect action, display changes and sleep/wake handling.
-- Menu bar controls to hide/show the island or quit. No Dock icon.
-- Respects Reduce Motion. Controls have accessibility labels. The initial interface is Turkish.
+## Start without writing code
 
-## Build and run
+1. Clone the repository, or choose **Code → Download ZIP** on GitHub and unzip it.
+2. Double-click **Start.command** in the project folder.
+3. If Apple’s developer tools are missing, the launcher offers to open Apple’s installer. Finish that installation, then reopen **Start.command**.
+4. Wait for the first build. The app installs into **Applications inside your home folder** and opens. Hover over the notch.
 
-Requires macOS 14 or newer and Xcode 15 or newer (or matching Swift/Apple command line tools). No Homebrew packages, network downloads, API keys, or third-party Swift dependencies are required.
+For later launches, open **MacBook Island.app** from your home folder’s Applications folder. There is no need to rebuild each time. The launcher uses Terminal to show progress, but requires no code or commands. If macOS blocks it, see the setup guide.
+
+Requires **macOS 14 Sonoma or newer**. Building from source requires Apple Command Line Tools with **Swift 5.9+**, or Xcode 15+. Apple Silicon has been tested locally; CI is configured for Apple Silicon and Intel, but Intel playback still needs on-device verification.
+
+### Ready-made app
+
+Once a release is published, use this repository’s **Releases** section: download `arm64` for Apple M-series or `x86_64` for Intel. Unzip, drag **MacBook Island.app** into Applications, then open. No developer tools needed. If Releases is empty, use the source setup above.
+
+Current packages are **ad-hoc signed, not Developer ID signed or notarized**. macOS may block a downloaded app. Review [Apple’s safety guidance](https://support.apple.com/en-us/102445) and the setup guide before deciding whether to open it.
+
+## Features
+
+- Hover to expand; delayed collapse when the pointer leaves.
+- Artwork, title, artist, native playback controls and draggable timeline.
+- Immediate seek feedback and pause/resume synchronization.
+- Follows macOS’s active Now Playing session across compatible apps and browsers.
+- Menu bar hide/show, reconnect and quit; no Dock icon.
+- Handles display changes and sleep/wake; respects Reduce Motion.
+
+The interface is currently Turkish. This shows the **active system media session**, not every simultaneous audio source. Sources must publish Now Playing information; metadata, seek and skip support depend on the player. Live/unknown-duration media cannot be scrubbed. The app does not record audio, request microphone/screen-recording/Accessibility access, send telemetry or store listening history. It does not start at login automatically.
+
+## Developer commands
 
 ```sh
-bash scripts/run.sh
-```
-
-This builds and opens `build/MacBook Island.app`. To build without launching:
-
-```sh
-bash scripts/build.sh
-```
-
-You can copy the resulting app into Applications yourself. The app is signed locally with an ad-hoc signature, not notarized for public binary distribution. The build targets the current Mac's architecture. Open `Package.swift` in Xcode for editing; use the build script for a runnable app bundle, since the media helper must be bundled alongside the executable.
-
-```sh
+bash scripts/check-requirements.sh
+bash scripts/run.sh                 # Build and launch from build/
+bash scripts/install.sh             # Install into ~/Applications and launch
 swift test --disable-sandbox
+bash scripts/package.sh             # ZIP + SHA-256 under dist/
 ```
 
-## How media integration works
+Quit before installing an update. Open `Package.swift` in Xcode for editing; use the scripts for a runnable bundle with the media helper. No Homebrew, API keys or external Swift dependencies are needed. Local builds need no network downloads once Apple’s tools are installed.
 
-The app observes macOS's **active Now Playing session** via the private MediaRemote framework, using the bundled [mediaremote-adapter](https://github.com/ungive/mediaremote-adapter). Starting with macOS 15.4, direct access from ordinary applications is restricted. The adapter runs inside the system Perl process and streams JSON updates to this app. Playback commands and seeks use that same adapter; there are no Spotify/Apple Music-specific integrations or AppleScript automation permissions.
+## License and distribution
 
-This is not a system audio recorder. It cannot identify audio that the originating app does not publish to Now Playing. It shows the system-selected active session, **not a list of every simultaneously playing app**. Metadata and command support depend on the player. A known duration and position enable seeking; some players may still ignore seek or skip requests. Live/unknown-duration media has no seek control. Apple's private API can change with macOS updates, so this app is intended for local use and is not an App Store build.
+Original project code: [MIT](LICENSE). Bundled [MediaRemote Adapter](https://github.com/ungive/mediaremote-adapter): **BSD-3-Clause**, with notices preserved in source and app packages. See [third-party notices](THIRD_PARTY_NOTICES.md) and [publication review](docs/PUBLICATION_REVIEW.md).
 
-The app makes no network requests and does not log listening history. Artwork and media metadata stay in memory. No microphone, screen-recording or Accessibility permission is requested.
+The adapter uses Apple’s **private MediaRemote API** through the system Perl process to support macOS 15.4+. Apple may change it; this implementation is not suitable for the Mac App Store’s public-API requirement. This is an independent project, not affiliated with Apple or endorsed by the adapter’s authors. No Apple framework binaries, album artwork or recordings are redistributed.
 
-## Layout and behavior
-
-The notched display is preferred; when unavailable, a compact island sits at the top center of the main display. Content stays below the physical camera housing. The overlay joins Spaces and full-screen apps. Transparent margins pass clicks through. The app does not launch at login automatically.
-
-## Source layout
-
-- `Sources/IslandCore`: metadata decoding, timeline math and streaming buffer.
-- `Sources/MacBookIsland`: menu bar lifecycle, overlay, playback UI and helper management.
-- `Vendor/MediaRemoteAdapter`: pinned upstream Objective-C/Perl source and BSD license.
-- `scripts`: offline build and launch scripts.
-- `Tests`: timing, streaming and metadata regression checks.
-
-See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for the dependency provenance and [docs/TESTING.md](docs/TESTING.md) for manual checks.
+[Testing](docs/TESTING.md) · [Contributing](CONTRIBUTING.md) · [Publishing](docs/RELEASING.md)
