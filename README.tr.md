@@ -10,7 +10,20 @@ Mouse'u üzerine getirdiğinizde MacBook çentiğinden genişleyen kompakt, siya
 
 **[Türkçe kurulum rehberi](docs/GETTING_STARTED.tr.md)** · **[English setup](docs/GETTING_STARTED.md)**
 
-## Kod yazmadan başlatın
+## İndir ve kullan
+
+**macOS 14 veya üstü** gerekir. Xcode veya geliştirici araçları gerekmez.
+
+- **[Apple Silicon (M-series): ZIP](https://github.com/Berkopan/notch-media-island/releases/download/v0.1.0/Notch-Media-Island-0.1.0-arm64.zip)**
+- **[Intel: ZIP](https://github.com/Berkopan/notch-media-island/releases/download/v0.1.0/Notch-Media-Island-0.1.0-x86_64.zip)**
+
+ZIP’i açın, **Notch Media Island.app** dosyasını **Uygulamalar** klasörüne sürükleyip açın. Mouse’u çentiğin üzerine getirin.
+
+[Sürüm notları ve SHA-256 dosyaları](https://github.com/Berkopan/notch-media-island/releases/latest).
+
+Mevcut paketler **yerel ad-hoc imzalıdır; Developer ID ile imzalanmış veya notarize edilmiş değildir**. macOS indirilen uygulamayı engelleyebilir. Açmaya karar vermeden önce [Apple'ın güvenlik açıklamasını](https://support.apple.com/en-us/102445) ve kurulum rehberini okuyun.
+
+## Kaynaktan kurulum
 
 1. Repoyu clone'layın veya GitHub'da **Code → Download ZIP** ile indirip ZIP'i açın.
 2. Proje klasöründeki **Start.command** dosyasına çift tıklayın.
@@ -20,12 +33,6 @@ Mouse'u üzerine getirdiğinizde MacBook çentiğinden genişleyen kompakt, siya
 Sonraki açılışlarda ana klasörünüzdeki Applications içinden **Notch Media Island.app** dosyasını açın. Her seferinde derlemeniz gerekmez. Başlatıcı ilerlemeyi göstermek için Terminal kullanır; kod veya komut yazmanız gerekmez. macOS açılışı engellerse kurulum rehberine bakın.
 
 **macOS 14 Sonoma veya daha yenisi** gerekir. Kaynaktan derlemek için **Swift 5.9+** içeren Apple Command Line Tools veya Xcode 15+ gerekir. Apple Silicon üzerinde yerel olarak test edilmiştir; CI hem Apple Silicon hem Intel için yapılandırılmıştır, ancak Intel'de gerçek cihaz üzerinde medya testi hâlâ gereklidir.
-
-### Hazır uygulama
-
-Bir sürüm yayımlandığında reponun **Releases** bölümünden Apple M-serisi için `arm64`, Intel için `x86_64` dosyasını indirin. ZIP'i açın, **Notch Media Island.app** dosyasını Uygulamalar'a sürükleyip açın. Geliştirici aracı gerekmez. Releases boşsa yukarıdaki kaynaktan kurulum yolunu kullanın.
-
-Mevcut paketler **yerel ad-hoc imzalıdır; Developer ID ile imzalanmış veya notarize edilmiş değildir**. macOS indirilen uygulamayı engelleyebilir. Açmaya karar vermeden önce [Apple'ın güvenlik açıklamasını](https://support.apple.com/en-us/102445) ve kurulum rehberini okuyun.
 
 ## Özellikler
 

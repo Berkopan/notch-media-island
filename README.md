@@ -10,7 +10,20 @@ A compact black media player that expands from your MacBook’s notch on hover. 
 
 **[Türkçe kurulum](docs/GETTING_STARTED.tr.md)** · **[English setup](docs/GETTING_STARTED.md)**
 
-## Start without writing code
+## Download and run
+
+Requires **macOS 14 or later**. No Xcode or developer tools needed.
+
+- **[Apple Silicon (M-series): ZIP](https://github.com/Berkopan/notch-media-island/releases/download/v0.1.0/Notch-Media-Island-0.1.0-arm64.zip)**
+- **[Intel: ZIP](https://github.com/Berkopan/notch-media-island/releases/download/v0.1.0/Notch-Media-Island-0.1.0-x86_64.zip)**
+
+Unzip, drag **Notch Media Island.app** into **Applications**, then open it. Hover over the notch.
+
+[Release notes and SHA-256 checksums](https://github.com/Berkopan/notch-media-island/releases/latest).
+
+Current packages are **ad-hoc signed, not Developer ID signed or notarized**. macOS may block a downloaded app. Review [Apple’s safety guidance](https://support.apple.com/en-us/102445) and the setup guide before deciding whether to open it.
+
+## Build from source
 
 1. Clone the repository, or choose **Code → Download ZIP** on GitHub and unzip it.
 2. Double-click **Start.command** in the project folder.
@@ -20,12 +33,6 @@ A compact black media player that expands from your MacBook’s notch on hover. 
 For later launches, open **Notch Media Island.app** from your home folder’s Applications folder. There is no need to rebuild each time. The launcher uses Terminal to show progress, but requires no code or commands. If macOS blocks it, see the setup guide.
 
 Requires **macOS 14 Sonoma or newer**. Building from source requires Apple Command Line Tools with **Swift 5.9+**, or Xcode 15+. Apple Silicon has been tested locally; CI is configured for Apple Silicon and Intel, but Intel playback still needs on-device verification.
-
-### Ready-made app
-
-Once a release is published, use this repository’s **Releases** section: download `arm64` for Apple M-series or `x86_64` for Intel. Unzip, drag **Notch Media Island.app** into Applications, then open. No developer tools needed. If Releases is empty, use the source setup above.
-
-Current packages are **ad-hoc signed, not Developer ID signed or notarized**. macOS may block a downloaded app. Review [Apple’s safety guidance](https://support.apple.com/en-us/102445) and the setup guide before deciding whether to open it.
 
 ## Features
 
