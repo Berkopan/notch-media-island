@@ -88,7 +88,7 @@ struct IslandView: View {
                     .font(.system(size: 17, weight: .medium)).foregroundStyle(.white.opacity(0.65))
                     .accessibilityLabel(media.playback.playing == true ? "Çalıyor" : "Duraklatıldı")
             }
-            TimelineView(.periodic(from: .now, by: 0.5)) { context in
+            TimelineView(.periodic(from: .now, by: 0.1)) { context in
                 SeekBar(playback: media.playback, date: context.date, state: state, seek: media.seek)
             }
             HStack(spacing: 27) {

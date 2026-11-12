@@ -9,6 +9,7 @@ final class MediaService: ObservableObject {
     private var stream: Process?
     private var commands: [UUID: Process] = [:]
     private var buffer = LineBuffer()
+    private var timeline = PlaybackTimeline()
     private var artworkEncoded: String?
 
     private func process(_ arguments: [String]) throws -> Process {
@@ -33,6 +34,7 @@ final class MediaService: ObservableObject {
         stop()
         errorMessage = nil
         buffer = LineBuffer()
+        timeline = PlaybackTimeline()
         do {
             let task = try process(["stream", "--no-diff", "--micros", "--allow-missing-title", "--debounce=80"])
             let output = Pipe()
@@ -67,7 +69,7 @@ final class MediaService: ObservableObject {
         for line in buffer.append(data) where !line.isEmpty {
             guard let event = try? JSONDecoder().decode(PlaybackEvent.self, from: line),
                   event.type == "data", !event.diff else { continue }
-            playback = event.payload
+            playback = timeline.receive(event.payload)
             if artworkEncoded != playback.artworkData {
                 artworkEncoded = playback.artworkData
                 artwork = playback.artworkData.flatMap { Data(base64Encoded: $0) }.flatMap(NSImage.init(data:))
