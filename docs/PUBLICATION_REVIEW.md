@@ -23,6 +23,8 @@ The pre-preparation repository contained 10 commits, 54 blob objects and 47 tree
 
 New publication files should be checked again before the initial push. Generic home-directory references such as `~/Applications` are portable instructions, not an actual account name. Public upstream copyright names are required attribution, not information about the maintainer's Mac.
 
+Follow-up preparation checks: a fresh local clone in a directory containing spaces built and packaged successfully; the launcher script installed into an isolated test folder and reinstallation succeeded. The extracted ZIP passed signature and checksum checks, included both licenses, and contained no matching local username, absolute home path or test-checkout path. All 12 regression tests passed. GitHub Actions, Intel hardware, a clean machine without Apple tools, and downloaded-file Gatekeeper behavior have not been exercised here.
+
 Build folders, release ZIPs, logs, environment files and signing keys are ignored. Release builds remap project debug paths and strip executable debug information before signing. Local `.git/config`, reflogs and the filesystem path of the checkout are not sent by an ordinary push. Never share the entire working folder or `.git` directory as a public ZIP; publish tracked source or the packaged release artifacts.
 
 Pattern scans cannot prove that arbitrary secrets never exist. Before future pushes, inspect new files and commit diffs; use a dedicated secret scanner for larger contributions. If a real secret is ever committed, revoke/rotate it and remove it from history before publishing, rather than only deleting it in a later commit.

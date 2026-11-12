@@ -1,5 +1,7 @@
 # MacBook Island
 
+**English** · **[Türkçe](README.tr.md)**
+
 A compact black media player that expands from your MacBook’s notch on hover. Native SwiftUI/AppKit, with system Now Playing integration.
 
 **[Türkçe kurulum](docs/GETTING_STARTED.tr.md)** · **[English setup](docs/GETTING_STARTED.md)**
