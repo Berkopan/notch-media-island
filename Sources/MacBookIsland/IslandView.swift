@@ -84,9 +84,6 @@ struct IslandView: View {
                         .font(.system(size: 12)).foregroundStyle(.white.opacity(0.5)).lineLimit(1)
                 }
                 Spacer(minLength: 4)
-                Image(systemName: media.playback.playing == true ? "waveform" : "pause.fill")
-                    .font(.system(size: 17, weight: .medium)).foregroundStyle(.white.opacity(0.65))
-                    .accessibilityLabel(media.playback.playing == true ? "Çalıyor" : "Duraklatıldı")
             }
             TimelineView(.periodic(from: .now, by: 0.1)) { context in
                 SeekBar(playback: media.playback, date: context.date, state: state, seek: media.seek)
