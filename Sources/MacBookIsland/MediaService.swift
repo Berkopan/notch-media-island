@@ -82,10 +82,25 @@ final class MediaService: ObservableObject {
     func seek(to seconds: Double) {
         guard playback.canSeek, seconds.isFinite else { return }
         let clamped = max(0, min(playback.duration, seconds))
-        runCommand(["seek", String(Int64(min(clamped * 1_000_000, Double(Int64.max / 2))))])
+        let id = UUID()
+        timeline.seek(to: clamped, id: id)
+        playback = timeline.playback
+        runCommand(["seek", String(Int64(min(clamped * 1_000_000, Double(Int64.max / 2))))]) { [weak self] in
+            self?.cancelSeek(id)
+        }
+        Task { @MainActor [weak self] in
+            try? await Task.sleep(for: .seconds(3))
+            self?.cancelSeek(id)
+        }
     }
 
-    private func runCommand(_ arguments: [String]) {
+    private func cancelSeek(_ id: UUID) {
+        guard timeline.cancelSeek(id: id) else { return }
+        playback = timeline.playback
+        errorMessage = "Oynatıcı yeni konumu doğrulamadı"
+    }
+
+    private func runCommand(_ arguments: [String], onFailure: @escaping @MainActor () -> Void = {}) {
         guard playback.hasMedia else { return }
         do {
             let task = try process(arguments)
@@ -94,7 +109,10 @@ final class MediaService: ObservableObject {
             task.terminationHandler = { [weak self] task in
                 Task { @MainActor [weak self] in
                     self?.commands[id] = nil
-                    if task.terminationStatus != 0 { self?.errorMessage = "Oynatıcı komutu uygulayamadı" }
+                    if task.terminationStatus != 0 {
+                        onFailure()
+                        self?.errorMessage = "Oynatıcı komutu uygulayamadı"
+                    }
                 }
             }
             try task.run()
@@ -103,12 +121,14 @@ final class MediaService: ObservableObject {
                 try? await Task.sleep(for: .seconds(5))
                 guard let task, task.isRunning else { return }
                 task.terminate()
+                onFailure()
                 self?.errorMessage = "Oynatıcı yanıt vermedi"
             }
-        } catch { errorMessage = "Oynatıcıya ulaşılamadı" }
+        } catch { onFailure(); errorMessage = "Oynatıcıya ulaşılamadı" }
     }
 
     func stop() {
+        timeline = PlaybackTimeline()
         let old = stream
         stream = nil
         if let output = old?.standardOutput as? Pipe { output.fileHandleForReading.readabilityHandler = nil }
