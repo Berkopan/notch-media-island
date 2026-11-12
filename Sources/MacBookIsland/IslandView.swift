@@ -7,8 +7,9 @@ final class IslandState: ObservableObject {
     @Published var notchWidth: CGFloat = 200
     @Published var notchHeight: CGFloat = 32
     var scrubbing = false
-    let width: CGFloat = 432
-    var height: CGFloat { notchHeight + 192 }
+    let width: CGFloat = 400
+    let contentHeight: CGFloat = 176
+    var height: CGFloat { notchHeight + contentHeight }
 }
 
 struct IslandShape: Shape {
@@ -47,7 +48,7 @@ struct IslandView: View {
                         emptyState
                     }
                 }
-                .frame(height: 192)
+                .frame(height: state.contentHeight)
                 .transition(.opacity)
             }
         }
@@ -62,7 +63,7 @@ struct IslandView: View {
     }
 
     private var player: some View {
-        VStack(spacing: 13) {
+        VStack(spacing: 11) {
             HStack(spacing: 13) {
                 Group {
                     if let artwork = media.artwork {
@@ -74,7 +75,7 @@ struct IslandView: View {
                         }
                     }
                 }
-                .frame(width: 54, height: 54)
+                .frame(width: 50, height: 50)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: 5) {
@@ -102,9 +103,9 @@ struct IslandView: View {
                 }
             }
         }
-        .padding(.horizontal, 25)
-        .padding(.top, 12)
-        .padding(.bottom, 20)
+        .padding(.horizontal, 22)
+        .padding(.top, 10)
+        .padding(.bottom, 16)
     }
 
     private var sourceName: String {
