@@ -6,9 +6,8 @@ Preparation does not create a GitHub repo, remote, tag or release.
 
 1. Create an **empty public repository** on GitHub. Do not generate a README, gitignore or license there; they already exist here.
 2. Copy its URL. In the project terminal run `git remote add origin YOUR_REPOSITORY_URL` (replace the placeholder), then `git push -u origin main`.
-3. CI is deliberately skipped while the repository is private to avoid billable runner usage. Run the local tests/build before making a private repository public.
-4. Once public, use **Actions → Build and test → Run workflow**. CI uses only the standard `macos-15` (Apple Silicon) and `macos-15-intel` runners, not paid larger runners. Public standard hosted runner usage is free under GitHub's current policy. It needs no secrets and has read-only repository permissions.
-5. Wait for both jobs. A workflow file alone is not evidence that CI ran; hardware/media testing is separate. Keep the public-only job guard if changing the workflow.
+3. Check **Actions → Build and test**. CI tests and packages on `macos-15` (Apple Silicon) and `macos-15-intel`. It needs no secrets and has read-only repository permissions.
+4. Wait for both jobs. A workflow file alone is not evidence that CI ran; hardware/media testing is separate.
 
 ## Downloadable packages
 

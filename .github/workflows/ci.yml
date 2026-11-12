@@ -8,9 +8,6 @@ permissions:
   contents: read
 jobs:
   macos:
-    # Standard hosted runners are free for public repositories. Never allocate
-    # a runner for a private copy, including manually dispatched workflows.
-    if: ${{ github.event.repository.private == false }}
     strategy:
       fail-fast: false
       matrix:
