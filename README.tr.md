@@ -4,6 +4,10 @@
 
 Mouse'u üzerine getirdiğinizde MacBook çentiğinden genişleyen kompakt, siyah bir medya oynatıcı. SwiftUI/AppKit ile geliştirilmiştir; macOS'un Şu An Çalınan bilgilerini kullanır.
 
+![Solda kapalı çentik, sağda genişlemiş medya kontrolleri](docs/images/preview.png)
+
+*Uygulamanın gerçek arayüz kodundan, kurgusal parça bilgileri ve özgün örnek kapakla oluşturulmuştur.*
+
 **[Türkçe kurulum rehberi](docs/GETTING_STARTED.tr.md)** · **[English setup](docs/GETTING_STARTED.md)**
 
 ## Kod yazmadan başlatın

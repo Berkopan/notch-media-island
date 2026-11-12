@@ -4,6 +4,10 @@
 
 A compact black media player that expands from your MacBook’s notch on hover. Native SwiftUI/AppKit, with system Now Playing integration.
 
+![Collapsed notch on the left and expanded media controls on the right](docs/images/preview.png)
+
+*Rendered from the app's actual UI with fictional track information and original sample artwork.*
+
 **[Türkçe kurulum](docs/GETTING_STARTED.tr.md)** · **[English setup](docs/GETTING_STARTED.md)**
 
 ## Start without writing code

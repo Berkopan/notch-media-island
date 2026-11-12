@@ -12,6 +12,14 @@ final class MediaService: ObservableObject {
     private var timeline = PlaybackTimeline()
     private var artworkEncoded: String?
 
+    #if README_PREVIEW
+    // Documentation renders use fictional metadata and never connect to MediaRemote.
+    init(preview: Playback, artwork: NSImage?) {
+        self.playback = preview
+        self.artwork = artwork
+    }
+    #endif
+
     private func process(_ arguments: [String]) throws -> Process {
         guard let resources = Bundle.main.resourceURL,
               let frameworks = Bundle.main.privateFrameworksURL else {
