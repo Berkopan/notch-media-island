@@ -7,8 +7,8 @@ final class IslandState: ObservableObject {
     @Published var notchWidth: CGFloat = 200
     @Published var notchHeight: CGFloat = 32
     var scrubbing = false
-    let width: CGFloat = 400
-    let contentHeight: CGFloat = 176
+    let width: CGFloat = 368
+    let contentHeight: CGFloat = 156
     var height: CGFloat { notchHeight + contentHeight }
 }
 
@@ -55,7 +55,7 @@ struct IslandView: View {
         .frame(width: state.expanded ? state.width : state.notchWidth,
                height: state.expanded ? state.height : state.notchHeight, alignment: .top)
         .background(.black)
-        .clipShape(IslandShape(radius: state.expanded ? 28 : 10))
+        .clipShape(IslandShape(radius: state.expanded ? 24 : 10))
         .shadow(color: .black.opacity(state.expanded ? 0.3 : 0), radius: 18, y: 8)
         .animation(reduceMotion ? .none : .spring(response: 0.36, dampingFraction: 0.84), value: state.expanded)
         .frame(width: state.width + 40, height: state.height + 30, alignment: .top)
@@ -63,8 +63,8 @@ struct IslandView: View {
     }
 
     private var player: some View {
-        VStack(spacing: 11) {
-            HStack(spacing: 13) {
+        VStack(spacing: 8) {
+            HStack(spacing: 11) {
                 Group {
                     if let artwork = media.artwork {
                         Image(nsImage: artwork).resizable().scaledToFill()
@@ -75,8 +75,8 @@ struct IslandView: View {
                         }
                     }
                 }
-                .frame(width: 50, height: 50)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .frame(width: 44, height: 44)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
                 .accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: 5) {
                     Text(media.playback.title ?? "Şu an çalıyor")
@@ -89,7 +89,7 @@ struct IslandView: View {
             TimelineView(.periodic(from: .now, by: 0.1)) { context in
                 SeekBar(playback: media.playback, date: context.date, state: state, seek: media.seek)
             }
-            HStack(spacing: 27) {
+            HStack(spacing: 23) {
                 control("backward.end.fill", label: "Önceki", size: 16, disabled: media.playback.prohibitsSkip == true) { media.send(5) }
                 control(media.playback.playing == true ? "pause.fill" : "play.fill",
                         label: media.playback.playing == true ? "Duraklat" : "Oynat", size: 23) { media.send(2) }
@@ -103,9 +103,9 @@ struct IslandView: View {
                 }
             }
         }
-        .padding(.horizontal, 22)
-        .padding(.top, 10)
-        .padding(.bottom, 16)
+        .padding(.horizontal, 20)
+        .padding(.top, 8)
+        .padding(.bottom, 12)
     }
 
     private var sourceName: String {
