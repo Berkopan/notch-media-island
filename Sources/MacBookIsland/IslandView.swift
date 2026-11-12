@@ -134,8 +134,34 @@ struct IslandView: View {
             Image(systemName: symbol).font(.system(size: size, weight: .semibold))
                 .frame(width: 36, height: 32).contentShape(Rectangle())
         }
-        .buttonStyle(.plain).disabled(disabled).opacity(disabled ? 0.3 : 1)
+        .buttonStyle(IslandControlStyle()).disabled(disabled).opacity(disabled ? 0.3 : 1)
         .accessibilityLabel(label).help(label)
+    }
+}
+
+private struct IslandControlStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        Feedback(configuration: configuration)
+    }
+
+    private struct Feedback: View {
+        let configuration: ButtonStyle.Configuration
+        @Environment(\.isEnabled) private var isEnabled
+        @Environment(\.accessibilityReduceMotion) private var reduceMotion
+        @State private var hovered = false
+
+        var body: some View {
+            configuration.label
+                .foregroundStyle(.white.opacity(isEnabled && hovered ? 1 : 0.85))
+                .background {
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(.white.opacity(isEnabled ? (configuration.isPressed ? 0.2 : hovered ? 0.12 : 0) : 0))
+                }
+                .scaleEffect(isEnabled && configuration.isPressed && !reduceMotion ? 0.94 : 1)
+                .onHover { hovered = $0 }
+                .animation(reduceMotion ? nil : .easeOut(duration: 0.14), value: hovered)
+                .animation(reduceMotion ? nil : .easeOut(duration: 0.1), value: configuration.isPressed)
+        }
     }
 }
 
